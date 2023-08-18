@@ -9,13 +9,12 @@ if 'random_seed' not in st.session_state:
     st.session_state['random_seed'] = np.random.randint(0, 100)
 
 if 'i' not in st.session_state:
-    st.session_state['i'] = None
+    st.session_state['i'] = 0
 
     
 uploaded_file = st.file_uploader("Carica file excel con le quotazioni aggiornate", type=["xlsx"])
 dropped_lines_df = pd.DataFrame()
-np.random.seed(random_seed)
-st.session_state['i'] = 0
+np.random.seed(st.session_state['random_seed'])
 st.write(str(st.session_state['random_seed']) + " - Numero di emergenza")
 
 if uploaded_file is not None:
