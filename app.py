@@ -7,7 +7,7 @@ st.title("Asta random")
     
 uploaded_file = st.file_uploader("Carica file excel con le quotazioni aggiornate", type=["xlsx"])
 dropped_lines_df = pd.DataFrame()
-random_seed = random.randint(0, 100)
+random_seed = np.random.randint(0, 100)
 st.write(str(random_seed) + " - Numero di emergenza")
 np.random.seed(random_seed)
 i = 0
