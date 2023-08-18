@@ -6,7 +6,7 @@ import numpy as np
 st.title("Asta random")
 
 if 'random_seed' not in st.session_state:
-    st.session_state['random_seed'] = None
+    st.session_state['random_seed'] = np.random.randint(0, 100)
 
 if 'i' not in st.session_state:
     st.session_state['i'] = None
@@ -14,9 +14,7 @@ if 'i' not in st.session_state:
     
 uploaded_file = st.file_uploader("Carica file excel con le quotazioni aggiornate", type=["xlsx"])
 dropped_lines_df = pd.DataFrame()
-random_seed = np.random.randint(0, 100)
 np.random.seed(random_seed)
-st.session_state['random_seed'] = random_seed
 st.session_state['i'] = 0
 st.write(str(st.session_state['random_seed']) + " - Numero di emergenza")
 
@@ -31,9 +29,10 @@ if uploaded_file is not None:
     df.reset_index(drop=True, inplace=True)
     
     if st.button("Estrai un giocatore"):
-        st.write("Giocatori mancanti:", len(df)-st.session_state['i']-1)
+        i = st.session_state['i']
+        st.write("Giocatori mancanti:", len(df)-i-1)
         st.write(df.iloc[:i+1,:])
-        st.session_state['i'] = st.session_state['i']+1
+        st.session_state['i'] = i+1
 
 
         
