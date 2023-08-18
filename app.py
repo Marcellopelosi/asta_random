@@ -14,8 +14,9 @@ if 'i' not in st.session_state:
     
 uploaded_file = st.file_uploader("Carica file excel con le quotazioni aggiornate", type=["xlsx"])
 dropped_lines_df = pd.DataFrame()
-np.random.seed(st.session_state['random_seed'])
-st.write(str(st.session_state['random_seed']) + " - Numero di emergenza")
+random_seed = st.session_state['random_seed']
+np.random.seed(random_seed)
+st.write(str(random_seed) + " - Numero di emergenza")
 
 if uploaded_file is not None:
     df = pd.read_excel(uploaded_file)
