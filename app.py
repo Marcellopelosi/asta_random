@@ -27,7 +27,7 @@ if uploaded_file is not None:
     df = df[["RM",	"Nome",	"Squadra",	"Qt.A"]]
     df = df[df["Qt.A"]>=soglia_minima]
     np.random.seed(random_seed)
-    df = df.shuffle(frac=1)
+    df = df.sample(frac=1)
 
     if st.button("Estrai un giocatore"):
         i = st.session_state['i']
