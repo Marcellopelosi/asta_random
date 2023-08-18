@@ -5,7 +5,7 @@ import numpy as np
 
 st.title("Asta random")
 
-random_seed = st.number_input("inserisci un numero a tuo piacimento", step = int)
+random_seed = st.number_input("inserisci un numero a tuo piacimento",value=0, step=1, format="%d")
 
 if 'i' not in st.session_state:
     st.session_state['i'] = 0
