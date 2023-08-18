@@ -10,14 +10,7 @@ random_seed = 42
 if 'i' not in st.session_state:
     st.session_state['i'] = 0
 
-if 'old_df' not in st.session_state:
-    st.session_state['old_df'] = None
-
-if 'new_df' not in st.session_state:
-    st.session_state['new_df'] = None
-
 uploaded_file = st.file_uploader("Carica file excel con le quotazioni aggiornate", type=["xlsx"])
-dropped_lines_df = pd.DataFrame()
 
 if uploaded_file is not None:
     df = pd.read_excel(uploaded_file)
